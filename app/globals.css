@@ -1,26 +1,56 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary colors */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #b9e6fe;
+  --color-primary-300: #7cd4fd;
+  --color-primary-400: #36bffa;
+  --color-primary-500: #0ca5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  
+  /* Secondary colors */
+  --color-secondary-500: #6b7280;
+  
+  /* Other colors and theme variables */
+  --font-sans: 'Inter var', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    font-family: var(--font-sans);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Add your custom component styles here */
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 border border-transparent 
+           shadow-sm text-sm font-medium rounded-md text-white 
+           bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 
+           focus:ring-offset-2 focus:ring-sky-500;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 
+           shadow-sm text-sm font-medium rounded-md text-gray-700 
+           bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 
+           focus:ring-offset-2 focus:ring-sky-500;
+  }
+  
+  .card {
+    @apply bg-white shadow rounded-lg overflow-hidden;
+  }
+  
+  .card-header {
+    @apply px-4 py-5 border-b border-gray-200 sm:px-6;
+  }
+  
+  .card-body {
+    @apply px-4 py-5 sm:p-6;
+  }
 }
